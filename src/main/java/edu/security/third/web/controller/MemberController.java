@@ -1,12 +1,13 @@
 package edu.security.third.web.controller;
 
 import edu.security.third.web.Exceptions.UserEmailNotFoundException;
-import edu.security.third.web.service.MemberService;
+import edu.security.third.web.service.MemberServiceTest;
 import edu.security.third.web.vo.Member;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -16,9 +17,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v2")
 @AllArgsConstructor
+@EnableRedisHttpSession
 public class MemberController {
 
-  private MemberService memberService;
+  private MemberServiceTest memberService;
 
   @GetMapping("/member/{email}")
   public ResponseEntity<Map<String, Object>> getMember(@PathVariable String email) {

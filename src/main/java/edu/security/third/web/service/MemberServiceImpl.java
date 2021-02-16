@@ -5,8 +5,6 @@ import edu.security.third.web.repository.MemberRepository;
 import edu.security.third.web.vo.Member;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,14 +12,14 @@ import java.util.List;
 @Slf4j
 @Service
 @AllArgsConstructor
-public class MemberServiceImpl implements MemberService {
+public class MemberServiceImpl implements MemberServiceTest {
 
   private MemberRepository memberRepository;
 
-  @Override
-  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    return null;
-  }
+  //  @Override
+  //  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+  //    return null;
+  //  }
 
   @Override
   public Member save(Member member) {
