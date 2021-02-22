@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-md-12">
+    <!-- 로그인 기능 영역  참고!!! {.{#userName}.} 에서 . 은 지우고 사용해야 합니다. -->
+    <div calss="row">
+        <div class="col-md-6">
+
+            {{#userName}} <!-- (1) -->
+                Logged in as: <span id="user">{{username}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a> <!-- (2) -->
+            {{/userName}}
+
+            {{^userName}} <!-- (3) -->
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a> <!-- (4) -->
+                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
+            {{/userName}}
+        </div>
+    </div>
+</div>
+</body>
+</html>

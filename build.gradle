@@ -6,7 +6,6 @@ plugins {
 
 group = 'edu.security'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '15'
 
 configurations {
     compileOnly {
@@ -20,10 +19,11 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    compile group: 'org.springframework.session', name: 'spring-session-data-redis'
+//    redis
+//    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+//    implementation 'org.springframework.session:spring-session-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -35,8 +35,14 @@ dependencies {
     //  OAuth2
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
-    // mustache
+//    // mustache
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
+    // thymeleaf
+//    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // JDBC Session
+    implementation 'org.springframework.session:spring-session-jdbc'
+
 }
 
 test {

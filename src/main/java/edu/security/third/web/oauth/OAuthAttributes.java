@@ -57,7 +57,7 @@ public class OAuthAttributes {
                  .name(name)
                  .email(email)
                  .picture(picture)
-                 .role(Role.USER)
+                 .role(Role.USER) // OAuth로그인 유저의 기본값 설정
                  .build();
   }
 }

@@ -3,6 +3,7 @@ package edu.security.third.web.oauth;
 import edu.security.third.web.repository.MemberRepository;
 import edu.security.third.web.vo.Member;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
 
+@Slf4j
 @AllArgsConstructor
 @Service
 public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
@@ -58,6 +60,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
                                     .map(entity -> entity.update(attributes.getName(),
                                         attributes.getPicture()))
                                     .orElse(attributes.toEntity());
+
     return memberRepository.save(member);
   }
 }

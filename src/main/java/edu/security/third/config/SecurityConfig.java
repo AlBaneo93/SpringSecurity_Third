@@ -3,6 +3,7 @@ package edu.security.third.config;
 import edu.security.third.web.oauth.CustomOAuth2UserService;
 import edu.security.third.web.service.MemberService;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

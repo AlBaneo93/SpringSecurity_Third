@@ -1,30 +1,31 @@
 package edu.security.third.web.controller;
 
+import edu.security.third.web.oauth.LoginUser;
 import edu.security.third.web.oauth.SessionUser;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
 @AllArgsConstructor
+@Slf4j
 @Controller
-@RequestMapping("/")
+@EnableJdbcHttpSession
 public class IndexController {
-
-  private final PostsService postsService;
 
   private final HttpSession httpSession;
 
   @GetMapping("/")
-  public String index(Model model) {
-    model.addAttribute("posts", postsService.findAllDesc());
+  public String index(Model model, @LoginUser SessionUser user) {
+    // 주석처리된 SessionUser는 LoginUser 어노테이션으로 대체되어 사용됨
+    //    SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
 
-    SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
-    if (sessionUser != null) {
-      model.addAttribute("userName", sessionUser.getName());
+    if (user != null) {
+      model.addAttribute("username", user.getName());
     }
 
     return "index";

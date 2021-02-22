@@ -1,9 +1,6 @@
 package edu.security.third.web.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,21 +9,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 public class Member {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;  // 유저 식별 값
 
-  @Column(nullable = false)
   private String email; // 유저의 실제 사용 아이디
 
-  @Column(nullable = false)
   private String password;
 
   private String name;
 
-  @Column(nullable = false)
   @Enumerated(EnumType.STRING)
   private Role role;
 
