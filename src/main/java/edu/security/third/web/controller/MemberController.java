@@ -1,7 +1,7 @@
 package edu.security.third.web.controller;
 
 import edu.security.third.web.Exceptions.UserEmailNotFoundException;
-import edu.security.third.web.service.MemberServiceTest;
+import edu.security.third.web.service.MemberService;
 import edu.security.third.web.vo.Member;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ import java.util.Map;
 @EnableRedisHttpSession
 public class MemberController {
 
-  private MemberServiceTest memberService;
+  private MemberService memberService;
 
   @GetMapping("/member/{email}")
   public ResponseEntity<Map<String, Object>> getMember(@PathVariable String email) {
