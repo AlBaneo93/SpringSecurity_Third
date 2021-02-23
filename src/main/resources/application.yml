@@ -29,8 +29,8 @@ spring :
     host : localhost
     port : 6379
 
-  session :
-    jdbc :
-      initialize-schema : always
-      table-name :        SPRING_SESSION
-    store-type : jdbc
+#  session :
+#    jdbc :
+#      initialize-schema : always
+#      table-name :        SPRING_SESSION
+#    store-type : jdbc

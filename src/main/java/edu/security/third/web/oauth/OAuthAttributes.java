@@ -21,9 +21,15 @@ public class OAuthAttributes {
   private String picture;
 
   public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
+    for (String key : attributes.keySet()) {
+      System.out.printf(attributes.get(key).toString());
+    }
     if ("naver".equals(registrationId)) {
       return ofNaver("id", attributes);
+    } else if ("kakao".equals(registrationId)) {
+      return ofKakao("id", attributes);
     }
+
     return ofGoogle(userNameAttributeName, attributes);
   }
 
@@ -48,10 +54,22 @@ public class OAuthAttributes {
                           .build();
   }
 
+  private static OAuthAttributes ofKakao(String userNameAttributeName, Map<String, Object> attributes) {
+    Map<String, Object> response = (Map<String, Object>) attributes.get("kakao_account");
+    Map<String, Object> profile = (Map<String, Object>) response.get("profile");
+    return OAuthAttributes.builder()
+                          .name((String) profile.get("nickname"))
+                          .email((String) response.get("email"))
+                          .picture((String) profile.get("profile_image_url"))
+                          .attributes(attributes)
+                          .nameAttributeKey(userNameAttributeName)
+                          .build();
+  }
+
   /*
-  * Member Entity 생성
-  * 사용자가 처음 가입시 기본 값으로 멤버 엔티티를 생성하기 위함
-  * */
+   * Member Entity 생성
+   * 사용자가 처음 가입시 기본 값으로 멤버 엔티티를 생성하기 위함
+   * */
   public Member toEntity() {
     return Member.builder()
                  .name(name)
