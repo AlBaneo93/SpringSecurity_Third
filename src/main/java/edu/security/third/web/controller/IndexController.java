@@ -23,6 +23,7 @@ public class IndexController {
     //    SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
 
     if (user != null) {
+      log.info(user.toString());
       model.addAttribute("username", user.getName());
     }
 

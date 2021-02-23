@@ -22,8 +22,12 @@ public class Member {
 
   private String name;
 
+  @Column(nullable = false)
   @Enumerated(EnumType.STRING)
   private Role role;
+
+  @Enumerated(EnumType.STRING)
+  private SocialType socialType;
 
   private String picture; // Profile Image
 

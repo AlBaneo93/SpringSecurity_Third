@@ -10,8 +10,8 @@ import lombok.RequiredArgsConstructor;
 public enum Role {
 
   USER("ROLE_USER", "사용자"),
-  ADMIN("ROLE_ADMIN","관리자"),
-  SUPER("ROLE_SUPER", "ㅁㅁ");
+  ADMIN("ROLE_MANAGER","매니저"),
+  SUPER("ROLE_ADMIN", "관리자");
 
   private final String key;
 
