@@ -4,7 +4,6 @@ import edu.security.third.web.oauth.LoginUser;
 import edu.security.third.web.oauth.SessionUser;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpSession;
 @AllArgsConstructor
 @Slf4j
 @Controller
-@EnableJdbcHttpSession
 public class IndexController {
 
   private final HttpSession httpSession;
