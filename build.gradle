@@ -43,6 +43,10 @@ dependencies {
     // JDBC Session
 //    implementation 'org.springframework.session:spring-session-jdbc'
 
+    // OAuth2 ResourceServer
+    implementation 'org.springframework.boot:spirng-boot-starter-ouath2-resource-server'
+
+
 }
 
 test {
